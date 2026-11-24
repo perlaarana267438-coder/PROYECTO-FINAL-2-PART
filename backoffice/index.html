@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="fondo-rosa">
+
+    <div class="caja-login">
+        <h1>Iniciar Sesión</h1>
+        <p class="subtitulo">Entra para administrar tu portafolio</p>
+
+        <!--mensajes error o exito-->
+        <div id="mensaje" class="alerta oculto"></div>
+
+        <form id="form-login" class="formulario">
+            <div class="campo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="********" required>
+            </div>
+
+            <button type="submit" class="boton-rosa" id="btn-entrar">Entrar</button>
+        </form>
+
+        <p class="texto-abajo">
+            ¿No tienes cuenta? <a href="register.html">Regístrate aquí</a>
+        </p>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

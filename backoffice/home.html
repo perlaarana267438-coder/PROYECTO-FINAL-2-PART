@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Proyectos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        //Si no hay sesión iniciada, regresar al login
+        if (!localStorage.getItem("token")) {
+            window.location.replace("index.html");
+        }
+    </script>
+</head>
+<body class="fondo-panel">
+
+    <aside class="menu-lateral">
+        <div>
+            <h2>Mi Portafolio ♡</h2>
+            <p id="saludo-usuario" class="etiqueta-usuario">Bienvenida</p>
+        </div>
+
+        <nav>
+            <ul class="lista-menu">
+                <li><a href="#" class="activo">Mis Proyectos</a></li>
+                <li><a href="#" id="link-nuevo">+ Nuevo Proyecto</a></li>
+                <li><a href="#" id="btn-salir">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="contenido-panel">
+        <div class="barra-arriba">
+            <div>
+                <h1>Mis Proyectos</h1>
+                <p class="subtitulo">Agrega, edita o borra los trabajos de tu portafolio</p>
+            </div>
+            <button class="boton-rosa" id="btn-agregar">+ Agregar Proyecto</button>
+        </div>
+
+        <div id="mensaje-panel" class="alerta oculto"></div>
+
+        <!--Aqui se cargan las tarjetas de proyectos-->
+        <section id="lista-proyectos" class="cuadricula-proyectos">
+            <p>Cargando proyectos... ♡</p>
+        </section>
+    </main>
+
+    <!--ventana emergente - crear o editar -->
+    <div id="ventana-modal" class="fondo-modal oculto">
+        <div class="caja-modal">
+            <div class="arriba-modal">
+                <h2 id="titulo-modal">Nuevo Proyecto ♡</h2>
+                <button type="button" id="btn-cerrar-x" class="boton-x">&times;</button>
+            </div>
+
+            <form id="form-proyecto" class="formulario">
+                <input type="hidden" id="proyecto-id">
+
+                <div class="campo">
+                    <label for="titulo">Título del proyecto *</label>
+                    <input type="text" id="titulo" placeholder="Ej. Página de repostería" required>
+                </div>
+
+                <div class="campo">
+                    <label for="descripcion">Descripción *</label>
+                    <textarea id="descripcion" rows="3" placeholder="Cuenta de qué trata tu proyecto" required></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="tecnologias">Tecnologías (separadas por coma)</label>
+                    <input type="text" id="tecnologias" placeholder="Ej. HTML, CSS, JavaScript">
+                </div>
+
+                <div class="campo">
+                    <label for="repositorio">Link de GitHub</label>
+                    <input type="url" id="repositorio" placeholder="https://github.com/usuario/proyecto">
+                </div>
+
+                <div class="campo">
+                    <label for="imagen">Link de una imagen (opcional)</label>
+                    <input type="url" id="imagen" placeholder="https://ejemplo.com/foto.png">
+                </div>
+
+                <div class="botones-modal">
+                    <button type="button" id="btn-cancelar" class="boton-gris">Cancelar</button>
+                    <button type="submit" id="btn-guardar" class="boton-rosa">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
